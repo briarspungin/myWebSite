@@ -1,0 +1,99 @@
+<html> 
+<head>
+<script language="javaScript">
+
+
+var counter = 0;
+
+var picList = [ "images/slideshow/Slide1Nick.jpg",
+				"images/slideshow/Slide2Missy.jpg",
+				"images/slideshow/Slide3Andrew.jpg",
+				"images/slideshow/Slide4Jay.jpg",
+				"images/slideshow/Slide5Jessie.jpg",
+				"images/slideshow/Slide6Matthew.jpg"
+			   ]
+			   
+			   
+			   
+			   
+//var timer ;
+
+//var 			   
+			   
+			   
+
+
+function nextPic()
+{
+	counter++;
+	document.getElementById("display").src = picList[counter]
+	incrementCounter()
+}
+
+function incrementCounter()
+{
+	if( counter == picList.length-1)
+	{	
+		counter = -1
+	}
+}
+function run()
+{ 
+	if( autoStart == false)
+	{
+		autoStart = true;
+		document.getElementById("runButton"). value = "Pause";
+	}
+	else
+	{
+		autoStart = false 
+		document.getElementById("runButton"). value = "Run Slideshow";
+	}
+	
+	autoPlay;
+} 
+
+function autoPlay()
+{
+	if (autoStart == true )
+	{
+	nextPic();
+	var ClipTime = ClipList [counter].length;
+	//alert(clipTime)
+	timer = setTimeout ( "autoPlay()",5000);
+
+nextPic();
+	var clipTime = clipList[counter].length;
+	//alert (clipTime);
+	timer = setTimeout ( "run()", clipTime*1000 )
+// player is like a record player 
+// player.src is like putting a record on the turn table
+//document.getElementById ("player").src = "sounds/slide1nickaudio"
+//document.getElementById ("player").play();
+
+}
+
+
+</script>
+</head>
+
+<body>
+<center>
+<h1> Big Mouth slideshow </h1>
+
+ click here to <a href="index.html"> return to home </a>
+ <input type="button" value= "Next slide" onclick="nextPic()"/>
+ <input type="button" value= "Run slideshow" onclick="run()" id = "runButton"/>
+ 
+ 
+ <br/><br/>
+ <img src = "images/slideshow/Slide1Nick.jpg" id = "display" />
+ 
+ <audio src = id="player"></audio>
+ 
+ 
+ 
+ </center>
+ 
+ </body>
+ </html> 

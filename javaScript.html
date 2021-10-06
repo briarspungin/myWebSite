@@ -1,0 +1,125 @@
+<html>
+<head>
+
+
+
+</head>
+<body bgcolor="#FBB917">
+
+<font color="#F3E5AB">
+
+
+
+<script language = "javaScript">
+
+
+
+function guessing1()
+{ 
+	/* block comment
+	write the algorithm that would prompt a user to guess a number between 1 and 10.
+	the program should tell the user if the guess is too high or too low. 
+	if the guess is correct, the program should alert how many guesses it took.
+	
+	1. create (declare) a prompt on your page 
+	2. set numOfGuesses to 0 
+	3. create a random number between 1-10, store this in rand
+	4. set usersGuess to -1
+	5. create a while loop
+		while (rand != usersGuess) // tets equality. != tets if rand oes NOT equal uG
+	6. prompt user to put in guess, store number of guesses
+	6. test if answer is too low, update user
+	7. test if answer is too high
+	8. alert if correct asnwer is guessed "yeah!", show number of guesses 
+	
+	*/
+	var usersGuess = -1;
+	var numOfGuesses = 0; // camelCase
+	var rand = Math.random()*10+1;
+	rand = parseInt (rand); 
+	
+	
+	
+	while (rand != usersGuess) // loop while while rand does not (!=) equal users guess 
+	 {
+	  usersGuess = prompt ("Enter a number between 1-10");
+	  numOfGuesses = numOfGuesses +1; 
+								// numOfGuesses ++; 
+		if( usersGuess < rand )
+		{
+		alert("your guess is too low")
+		}
+		
+		else if( usersGuess > rand )
+		{
+		alert ("your guess is too high") 
+		}
+		
+		if (usersGuess == rand)
+		{
+		alert( "You Got It!") 
+		}
+	 }
+	 
+	 var rand = Math.random ()*10 + 1;
+	 rand = parseInt (rand); 
+	
+}
+
+function greeting1()
+
+{
+	alert ("hello");
+}
+
+function greeting2()
+{
+	// var declares a variable. use var only once per variable
+	// 
+	var name = prompt("Type your name"); // = is the assignment operator
+	alert ("Hello there, "+name);
+} // this assigns the element on the right to 
+// the element on the left 
+
+
+function greeting3()
+
+{
+var Response = prompt("Do you like my site?"); // = is the assignment operator
+alert (response);
+} // this assigns the element on the right to 
+// the element on the left 
+
+
+
+
+
+</script>
+</head>
+<body>
+
+<h1> My first JavaScript </h1>
+
+
+
+
+<! create a link that goes to my hero page.>
+
+click here to <a href = " "> see my first javaScript page </a> <br/>
+
+
+
+
+<hr/>
+<input type = "button" value="Click me" onclick="greeting2()" />
+
+<hr/>
+<input type = "button" value="Click on me for a guessing game!" onclick="guessing1()" />
+
+<hr/>
+<input type = "button" value="Click for surprise" onclick="greeting3()" />
+
+
+
+</body>
+</html> 
