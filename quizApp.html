@@ -1,0 +1,202 @@
+<html>
+<head>
+<script language = JavaScript>
+var counter = 0;
+var score = 0;
+var words = ["Monkey",
+			 "Frog",
+			 "Fish",
+			 "Lizard",
+             "Covid-19"
+			]
+			
+var defs = ["Mammal",
+			 "Amphibian",
+			 "Aquatic animals",
+			 "Reptile",
+             "Virus"
+			]
+			
+			
+
+var asked = [ false,
+			  false,
+			  false,
+			  false,
+			  false
+			]
+			  
+var qAsked = 0;		  
+			   
+function nextQ()
+{
+	// Store the state of the "terms" radio button in a variable called termsOrDefs
+	var termsOrDefs = document.getElementById("terms").checked;
+	displayClue(termsOrDefs);// terms = termsOrDefs
+	document.getElementById("answer").value = "";
+	
+	// Write that hides the image div. The property to hide it is "hidden".
+	document.getElementById("image").style.visibility = "hidden";
+	
+}
+
+function displayClue(terms)
+{
+	
+	
+	qAsked = getUnusedIndex();
+	
+	if(terms == true)
+	{
+		document.getElementById("clue").value = words[qAsked];
+	}
+	else
+	{
+		document.getElementById("clue").value = defs[qAsked];
+	}
+	
+}
+
+function nextA()
+{
+	var termsOrDefs = document.getElementById("terms").checked;
+	checkAnswer(termsOrDefs)
+}
+
+
+function checkAnswer(terms)
+{
+
+	var answerList;
+	if(terms == true) 
+	{
+		answerList = defs;
+		
+	}
+	else
+	{
+		answerList = words;
+	}
+	
+	var userAns = document.getElementById("answer").value
+	
+	
+	if(userAns == answerList[qAsked])//user is correct!
+	{
+		score += 5;
+		alert("Correct! Your score is "+score);
+	
+		document.getElementById("winLoss").src = "images/yes2.jpg";
+	}
+	else 
+	{
+		alert("Sorry, your score is incorrect");
+		 
+		
+		document.getElementById("winLoss").src = "images/no2.jpg";
+	}
+	
+	var midPoint = window.innerWidth
+	document.getElementById("image").style.left = ((midPoint/2)-158);
+	document.getElementById("image").style.visibility = "visible";
+	
+	
+	if(counter < words.length-1) 
+	{
+		counter++;
+	}
+	else // User has finished the quiz
+	{
+		counter = 0
+		endQuiz();
+	}
+}
+
+function doStuff()
+{
+	var temp = getUnusedIndex();
+	if( temp >-1)
+		alert(temp);
+	else 
+		alert("All Question have been asked");
+}
+
+
+function getUnusedIndex()
+{
+	
+	var rand = Math.floor(Math.random()*asked.length);
+	
+  
+	if( qAsked < asked.length )
+	{
+		while( asked[rand] == true ) 
+		{
+			rand = Math.floor(Math.random()*asked.length);
+		}// rand is a number that has not been asked yet
+	}
+	else
+	{
+		rand = -1;// Not a valid index for an array
+	}
+	
+	
+	asked[rand] = true;
+	qAsked++;
+	
+	
+	return rand;
+}
+
+function endQuiz()
+{
+ 
+
+	for(i=0; i < asked.length; i++)
+	{
+	 //reset each slot of asked to false 
+	 asked (i) = false;
+	}
+	
+	alert (asked);
+}
+
+
+
+</script>
+</head>
+<body>
+<center>
+<h1>Vocab Quiz</h1>
+
+<input type="radio" id="terms" name="qType" onchange="restart()" checked>
+  <label for="terms">Words</label>
+<input type="radio" id="defs" name="qType" on>
+  <label for="defs">Definitions</label>
+<input type="button" value="Next" onclick="nextQ()"/>
+
+<br/>
+
+
+
+<br/><br/>
+<input type = "text" id="clue" readonly size=40>
+
+<br/><br/>
+<input type = "text" id="answer" onfocusout="nextA()" size=40>
+<br/>
+<input type="button" value="Check Answer" />
+
+<br><br/>
+click here to <a href="quizAppfinalcode.html"> go to my index page. </a> 
+</center> 
+
+
+<div id="image" style="position:absolute; top:250; left:450; visibility:hidden;">
+
+	<img id="winLoss" src="images/yes2.jpg">
+
+</div>
+
+</body>
+</html> 
