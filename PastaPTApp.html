@@ -1,0 +1,115 @@
+<html>
+<head>
+
+<script language = "javaScript">
+
+	var pasta = [ ["Penne", "Red Sauce"],
+				["Rotini", "Red Sauce"],
+				["Tortelini", "Red Sauce" ],
+				[ "Ravioli", "Red Sauce"],
+				["Fettucine", "Pesto Sauce"],
+				["Calamarata", "Pesto Sauce"],
+				[ "Cappelletti", "Pesto Sauce"],
+				["Pappardelle", "Pesto Sauce"],
+				[ "Mostaccioli", "Butter and Cheese"],
+				[ "Orecchiette", "Butter and Cheese"],
+				["Cavatelli", "Butter and Cheese"],
+				["Cavatappi", "Butter and Cheese"]
+						];
+						
+
+
+function saucePicker ()
+{
+	var select = document.getElementById ("pasta").value;
+	getToppingList(select);
+}
+
+function getToppingList(turtlecat)
+ {
+
+	var ToppingList = new Array (4);
+	var counter1 = 0;
+	var counter2 = 0;
+	
+while (counter1  <pasta.length)
+	{
+		if (pasta[counter1][1] == turtlecat)
+		{
+		ToppingList[counter2] = pasta[counter1];
+		counter2++;
+		}
+		counter1++;
+	}
+	var v=0
+		while (v<ToppingList.length)
+		{
+		alert (ToppingList [v] [0]);
+		v++;
+		}
+}
+/*var sameGenre;
+
+ /*function pickRandomAlbum()
+  {
+ rand=Math.random*
+  } 
+ function albumPicker()
+ { 
+  var genre = document.getElementById("Genre").value;
+	sameGenre = Genre;
+  var counter1 = 0;
+  var counter2 = 0; 
+  while ( counter1 <TaylorAlbums.length)
+	{
+		if (TaylorAlbums[counter1][1] == x)
+		{
+		genreList[counter2] = TaylorAlbums[counter1];
+		counter2++;
+		}
+		counter1++;
+	}
+	alert(sameGenre);
+	pickRandomAlbum(sameGenre);
+}
+
+	//var selection = document.getElementById("Genre").value;
+	//alert(selection)
+<select id = "Genre" onchange = "albumPicker()" > 
+*/ 
+</script>
+</head>
+<body bgcolor="#FFCB8B">
+
+<body> 
+<center>
+<font color="AE1400" face="Georgia">
+
+<h1>  Papa Penne's Pasta Quiz! </h1>
+
+<h5> Select a pasta topping from the drop-down menu to see wich pasta shape it pairs best with :)</h5>
+
+<select id = "pasta" onchange = "saucePicker()"> 
+	<option> ---Choose topping--- </option>
+	<option> Pesto </option>
+	<option> Red Sauce </option>
+	<option> Butter and cheese </option>
+	
+</select>
+
+<h5> Thanks for playing!! :) </h5>
+
+</center>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
